@@ -37,6 +37,11 @@ int main(int argc, char *argv[])
     fclose(file)
 
 
+
+
+
+
+
     printf("Содержимое стека после чтения из файла:\n");
     print_els(stack);
 
