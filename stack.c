@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "stack.h"
 
-// Новая версия
+
 void add_el(obj **ptr, obj **top, int n)
 {
     obj *new_node = (obj *)malloc(sizeof(obj));
@@ -11,13 +11,6 @@ void add_el(obj **ptr, obj **top, int n)
     *ptr = new_node;
     *top = new_node;
 }
-// Было
-// void add_el(obj **ptr, obj **top, int n) {
-//     obj *ptr = (obj *)malloc(sizeof(obj));
-//     (*ptr)->data = n;
-//     (*ptr)->next = *top;
-//     *top = *ptr;
-// }
 
 int pop(obj **top)
 {
@@ -60,23 +53,14 @@ void sort_stack(obj **top)
 
     while (*top != NULL)
     {
-        // Get value from original stack
         int val = pop(top);
-
-        // Create temporary stack for larger elements
         obj *temp = NULL;
-
-        // Move larger elements to temp stack
         while (sorted != NULL && sorted->data > val)
         {
             int temp_val = pop(&sorted);
             add_el(&temp, &temp, temp_val);
         }
-
-        // Add current value to sorted stack
         add_el(&sorted, &sorted, val);
-
-        // Move elements back from temp to sorted
         while (temp != NULL)
         {
             int temp_val = pop(&temp);

@@ -3,10 +3,10 @@
 #include <string.h>
 #include "stack.h"
 
-void append_stack_rows_to_file(const char *filename, obj *stack)
+void append_stack_rows_to_file(const char *filename, obj *top)
 {
     FILE *file = fopen("result", "w");
-    obj *current = stack;
+    obj *current = top;
     while (current != NULL)
     {
         fprintf(file, "%d ", current->data);
