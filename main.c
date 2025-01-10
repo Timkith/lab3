@@ -34,13 +34,8 @@ int main(int argc, char *argv[])
     {
         add_el(&stack, &stack, number);
     }
-    fclose(file);
+    fclose(file)
 
-
-
-
-
-    
 
     printf("Содержимое стека после чтения из файла:\n");
     print_els(stack);
